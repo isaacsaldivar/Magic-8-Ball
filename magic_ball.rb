@@ -1,6 +1,3 @@
-# - User inputs question
-# - Computer outputs random answer
-# - User inputs "QUIT"
 # - Computer outputs a goodbye message and exits
 
 # Bonus Objectives:
@@ -14,17 +11,7 @@
 
 # - ability to have eight ball print all answers
 # - via easter egg question ("print_answers")
-
-def magic_eight_menu
-	puts "Welcome to the Magic 8 Ball"
-	puts "Please ask your first question or type QUIT to exit!"
-  user_input = gets.strip.downcase
-  exit (0) if user_input == "quit"
- 	output
-  	
-end
-
-	@arr = ["It is certain",
+@arr = ["It is certain",
 		"It is decidedly so",
 		"Without a doubt",
 		"Yes, definitely",
@@ -39,19 +26,38 @@ end
 		"Better not tell you now",
 		"Cannot predict now",
 		"Concentrate and ask again",
-		"Don't count on it",ß
+		"Don't count on it",
 		"My reply is no",
 		"My sources say no",
 		"Outlook not so good",
 		"Very doubtful",]
- 
 
-	def output
-		puts @arr.sample
-		
-  end
+def welcome
+	puts "Welcome to the Magic 8 Ball"
+	magic_eight_menu
+end
 
-magic_eight_menu
+def magic_eight_menu
+	puts "Please ask a question or type QUIT to exit!"
+  user_input = gets.strip.downcase
+  quit_option(user_input)
+end
+
+def quit_option(user_input)  
+  if user_input == "quit"
+	  	puts "Thank you for using the Magic 8 Ball!"
+	else
+		output
+	end
+end
+
+def output
+	puts @arr.sample
+
+	magic_eight_menu	
+end
+
+welcome
 
 
 
